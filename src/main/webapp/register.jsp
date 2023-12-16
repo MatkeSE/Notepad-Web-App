@@ -17,30 +17,52 @@
 
 				<div class="card mt-4">
 					<div class="card-header text-center">
-					<i class="fa fa-user-plus fa-3x" aria-hidden="true"></i>
-					<h4>Registration</h4>
+						<i class="fa fa-user-plus fa-3x" aria-hidden="true"></i>
+						<h4>Registration</h4>
 					</div>
+
+					
+					<%
+					String regMsg = (String) session.getAttribute("reg-success");
+					if (regMsg != null) {
+					%>
+					<div class="alert alert-success" role="alert"><%=regMsg%> <a href="login.jsp">Click here to login</a></div>
+					<%
+					session.removeAttribute("reg-success");
+					}
+
+					String fldMsg = (String) session.getAttribute("reg-failed");
+					if (fldMsg != null) {
+					%>
+					<div class="alert alert-danger" role="alert"><%=fldMsg %></div>
+					<%
+					session.removeAttribute("reg-failed");
+					}
+					%>
+
+
 					<div class="card-body">
-						<form>
+						<form action="UserServlet" method="post">
 							<div class="form-group">
 								<label for="exampleInputEmail1">Full Name</label> <input
-									type="email" class="form-control" id="exampleInputEmail1"
-									aria-describedby="emailHelp" >
-								
+									type="text" class="form-control" id="exampleInputEmail1"
+									aria-describedby="emailHelp" name="fname">
+
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">Email address</label> <input
 									type="email" class="form-control" id="exampleInputEmail1"
-									aria-describedby="emailHelp" >
-								
+									aria-describedby="emailHelp" name="ueamil">
+
 							</div>
 							<div class="form-group">
 								<label for="exampleInputPassword1">Password</label> <input
 									type="password" class="form-control" id="exampleInputPassword1"
-									>
+									name="upassword">
 							</div>
-							
-							<button type="submit" class="btn btn-primary badge-pill btn-block">Register</button>
+
+							<button type="submit"
+								class="btn btn-primary badge-pill btn-block">Register</button>
 						</form>
 					</div>
 				</div>

@@ -23,19 +23,31 @@
 					<i class="fa fa-user-plus fa-3x" aria-hidden="true"></i>
 					<h4>Login Page</h4>
 					</div>
+					
+					<%
+					String invMsg = (String) session.getAttribute("log-failed");
+					if (invMsg != null) {
+					%>
+					<div class="alert alert-danger" role="alert"><%=invMsg%></div>
+					<%
+					session.removeAttribute("log-failed");
+					}
+
+					%>
+					
 					<div class="card-body">
-						<form>
+						<form method="post" action="loginServlet">
 							
 							<div class="form-group">
 								<label for="exampleInputEmail1">Email address</label> <input
 									type="email" class="form-control" id="exampleInputEmail1"
-									aria-describedby="emailHelp" >
+									aria-describedby="emailHelp" name="uemail" >
 								
 							</div>
 							<div class="form-group">
 								<label for="exampleInputPassword1">Password</label> <input
 									type="password" class="form-control" id="exampleInputPassword1"
-									>
+									name="upassword">
 							</div>
 							
 							<button type="submit" class="btn btn-primary badge-pill btn-block">Login</button>
