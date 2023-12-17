@@ -43,9 +43,9 @@ public class UserDAO {
 		return f;
 	}
 	
-	public boolean loginUser(UserDtls us)
+	public UserDtls loginUser(UserDtls us)
 	{
-		boolean f=false;
+		UserDtls user=null;
 		
 		try {
 			
@@ -60,7 +60,11 @@ public class UserDAO {
 			
 			if(rs.next())
 			{
-				f=true;
+				user = new UserDtls();
+				user.setId(rs.getInt("id"));
+				user.setName(rs.getString("name"));
+				user.setEmail(rs.getString("email"));
+				user.setPassword(rs.getString("password"));
 			}
 			
 		} catch
@@ -68,7 +72,7 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 		
-		return f;
+		return user;
 	}
 	
 	
