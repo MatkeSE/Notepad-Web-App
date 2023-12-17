@@ -25,9 +25,11 @@ public class loginServlet extends HttpServlet {
 		us.setPassword(password);
 
 		UserDAO dao = new UserDAO(DBConnection.getConn());
-		boolean f = dao.loginUser(us);
+		UserDtls user = dao.loginUser(us);
 
-		if (f) {
+		if (user!=null) {
+			HttpSession session = request.getSession();
+			session.setAttribute("userD", user);
 			response.sendRedirect("home.jsp");
 		} else {
 			HttpSession session = request.getSession();

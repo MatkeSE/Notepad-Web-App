@@ -2,11 +2,12 @@ package com.User;
 
 public class UserDtls {
 
+	private int id;
 	private String name;
 	private String email;
 	private String password;
 	
-	public UserDtls(String name, String email, String password) {
+	public UserDtls(int id,String name, String email, String password) {
 		super();
 		this.name = name;
 		this.email = email;
@@ -17,6 +18,14 @@ public class UserDtls {
 		super();
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public String getName() {
 		return name;
 	}

@@ -5,8 +5,21 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<%@include file="all_component/allcss.jsp"%>
 </head>
 <body>
-<h1>HOme</h1>
+
+
+<div class="container-fluid p-0">
+<%@include file="all_component/navbar.jsp"%>
+<div class="card py-5">
+<div class="card-body text-center">
+<img alt="" src="img/images.jpg" class="img-fluid mx-auto" style="width: 350px;">
+<h1>START TAKING YOUR NOTES</h1>
+<a href="addNotes.jsp" class="btn btn-outline-primary">Start here</a>
+</div>
+</div>
+</div>
+<%@include file="all_component/footer.jsp"%>
 </body>
 </html>
