@@ -11,13 +11,13 @@
 
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto">
-			<li class="nav-item active"><a class="nav-link" href="index.jsp"><i
+			<li class="nav-item active"><a class="nav-link" href="home.jsp"><i
 					class="fa fa-home" aria-hidden="true"></i> Home <span
 					class="sr-only">(current)</span></a></li>
-			<li class="nav-item"><a class="nav-link" href="#"><i
+			<li class="nav-item"><a class="nav-link" href="addNotes.jsp"><i
 					class=" fa fa-plus-circle" aria-hidden="true"></i>Add Notes</a></li>
 
-			<li class="nav-item"><a class="nav-link " href="#"><i
+			<li class="nav-item"><a class="nav-link " href="showNotes.jsp"><i
 					class="fa fa-address-book-o " aria-hidden="true"></i>Show Notes</a></li>
 		</ul>
 
@@ -31,7 +31,7 @@
 		data-target="#exampleModal"
 			type="submit"><%=user.getName()%></a>
 			
-			 <a href="register.jsp"
+			 <a href="logoutServlet"
 			class="btn btn-light my-2 my-sm-0" type="submit">Logout</a>
 			
 			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
