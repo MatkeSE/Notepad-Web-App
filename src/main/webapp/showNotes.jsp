@@ -1,3 +1,7 @@
+<%@page import="com.User.Note"%>
+<%@page import="java.util.List"%>
+<%@page import="com.Db.DBConnection"%>
+<%@page import="com.DAO.NoteDAO"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
@@ -25,22 +29,30 @@ if (user3 == null) {
 
 		<div class="row">
 			<div class="col-md-12">
+
+				<%
+				if (user3 != null) {
+					NoteDAO ob = new NoteDAO(DBConnection.getConn());
+					List<Note> note = ob.getData(user3.getId());
+					for (Note no : note) {
+				%>
 				<div class="card mt-3">
 
 					<img alt="" src="img/images.jpg" class="card-img-top mt-2 mx-auto"
 						style="max-width: 100px;">
 
 					<div class="card-body p-4">
-						<h5 class="card-title ">What is java</h5>
-						<p>Java is language</p>
+
+						<h5 class="card-title "><%=no.getTitle() %></h5>
+						<p><%=no.getContent() %></p>
 
 						<p>
-							<b class="text-success">Published By: </b><br>
-							<b class="text-primary"></b>
+							<b class="text-success">Published By: <%=user3.getName() %> </b><br> <b
+								class="text-primary"></b>
 						</p>
 						<p>
-							<b class="text-success">Published date: </b><br>
-							<b class="text-primary"></b>
+							<b class="text-success">Published date: <%=no.getPdate() %> </b><br> <b
+								class="text-primary"></b>
 						</p>
 
 						<div class="container text-center mt-2">
@@ -51,6 +63,12 @@ if (user3 == null) {
 					</div>
 
 				</div>
+				<%
+				}
+				}
+				%>
+
+
 			</div>
 		</div>
 

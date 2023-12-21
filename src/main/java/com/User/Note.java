@@ -1,5 +1,8 @@
 package com.User;
 
+import java.sql.Date;
+import java.sql.Timestamp;
+
 import javax.xml.crypto.Data;
 
 public class Note {
@@ -7,9 +10,9 @@ public class Note {
 	private int id;
 	private String title;
 	private String content;
-	private Data pdate;
+	private Timestamp pdate;
 	private UserDtls user;
-	public Note(int id, String title, String content, Data pdate, UserDtls user) {
+	public Note(int id, String title, String content, Timestamp pdate, UserDtls user) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -38,18 +41,20 @@ public class Note {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Data getPdate() {
-		return pdate;
-	}
-	public void setPdate(Data pdate) {
-		this.pdate = pdate;
-	}
+	
 	public UserDtls getUser() {
 		return user;
 	}
 	public void setUser(UserDtls user) {
 		this.user = user;
 	}
+	public Timestamp getPdate() {
+		return pdate;
+	}
+	public void setPdate(Timestamp pdate) {
+		this.pdate = pdate;
+	}
+	
 	
 	
 
