@@ -27,6 +27,7 @@ public class AddNotesServlet extends HttpServlet
 		if(f)
 		{
 			System.out.println("Success");
+			response.sendRedirect("showNotes.jsp");
 		}	
 		else
 		{
