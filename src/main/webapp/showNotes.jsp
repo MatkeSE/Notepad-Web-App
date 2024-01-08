@@ -24,6 +24,32 @@ if (user3 == null) {
 <body>
 	<%@include file="all_component/navbar.jsp"%>
 
+	<%
+	String updateMsg = (String) session.getAttribute("updateMsg");
+	if (updateMsg != null) {
+	%>
+
+	<div class="alert alert-success" role="alert"><%=updateMsg%></div>
+
+	<%
+	session.removeAttribute("updateMsg");
+	}
+	%>
+
+	<%
+	String wrongMsg = (String) session.getAttribute("wrongMsg");
+	if (wrongMsg != null) {
+	%>
+
+	<div class="alert alert-danger" role="alert"><%=wrongMsg%></div>
+
+	<%
+	session.removeAttribute("wrongMsg");
+	}
+	%>
+
+
+
 	<div class="container">
 		<h2>All notes:</h2>
 
@@ -43,21 +69,22 @@ if (user3 == null) {
 
 					<div class="card-body p-4">
 
-						<h5 class="card-title "><%=no.getTitle() %></h5>
-						<p><%=no.getContent() %></p>
+						<h5 class="card-title "><%=no.getTitle()%></h5>
+						<p><%=no.getContent()%></p>
 
 						<p>
-							<b class="text-success">Published By: <%=user3.getName() %> </b><br> <b
-								class="text-primary"></b>
+							<b class="text-success">Published By: <%=user3.getName()%>
+							</b><br> <b class="text-primary"></b>
 						</p>
 						<p>
-							<b class="text-success">Published date: <%=no.getPdate() %> </b><br> <b
-								class="text-primary"></b>
+							<b class="text-success">Published date: <%=no.getPdate()%>
+							</b><br> <b class="text-primary"></b>
 						</p>
 
 						<div class="container text-center mt-2">
-							<a href="DeleteServlet?note_id" class="btn btn-danger">Delete</a>
-							<a href="edit.jsp?note_id" class="btn btn-primary">Edit</a>
+							<a href="DeleteServlet?note_id=<%=no.getId()%>"
+								class="btn btn-danger">Delete</a> <a
+								href="edit.jsp?note_id=<%=no.getId()%>" class="btn btn-primary">Edit</a>
 						</div>
 
 					</div>
