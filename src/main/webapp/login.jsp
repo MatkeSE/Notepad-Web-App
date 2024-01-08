@@ -81,7 +81,11 @@
 	</div>
 
 
-	<%@include file="all_component/footer.jsp"%>
+<div class="container-fluid bg-dark mt-1">
+<p class="text-center text-white">DESIGNED BY MATIJA - SOFTWARE ENGINEER</p>
+<br>
+<p class="text-center text-white">DESIGNED BY MATIJA - SOFTWARE ENGINEER</p>
+</div>
 
 </body>
 </html>

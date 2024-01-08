@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.xml.crypto.Data;
 
 import com.User.Note;
@@ -75,5 +76,78 @@ public class NoteDAO {
 		
 		return list;
 	}
+	
+	public Note getDataByID(int noteId)
+	{
+		Note n = null;
+		try {
+			
+			String sql = "select * from note where id=?";
+			
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, noteId);
+			
+			ResultSet rs= ps.executeQuery();
+			
+			if(rs.next())
+			{
+				n = new Note();
+				n.setId(rs.getInt(1));
+				n.setTitle(rs.getString(2));
+				n.setContent(rs.getString(3));
+			}
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return n;
+	}
+	
+	public boolean NoteUpdate(int nid , String ti, String co)
+	{
+		boolean f = false;
+		
+		try {
+			
+			String sql = "update note set title=?,content=? where id = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, ti);
+			ps.setString(2, co);
+			ps.setInt(3, nid);
+			int i = ps .executeUpdate();
+			
+			if(i==1) {f=true;}
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return f;
+	}
+	
+	public boolean DeleteNotes(int nid)
+	{
+		boolean f = false;
+        
+		try {
+		String sql  = "delete from note where id= ?";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		 ps.setInt(1, nid);
+		 
+		 int i =ps.executeUpdate();
+		 
+		if(i == 1)
+		{
+			return true;
+		}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	return f;
+	}
+	
 	
 }
