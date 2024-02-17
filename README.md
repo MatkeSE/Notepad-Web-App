@@ -1,7 +1,9 @@
 # Notepad-Web-App
 
 Web app that works like notepad.
-Just register and start taking notes and perform crud operations on them.
+Once you register, you will be able to start taking notes and perform crud operations on them.
+<br>
+All notes will be safely stored in MySQL database.
 java,mysql,html,css,bootstrap
 
 # What I Learned 
