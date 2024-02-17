@@ -4,7 +4,11 @@ Web app that works like notepad.
 Once you register, you will be able to start taking notes and perform crud operations on them.
 <br>
 All notes will be safely stored in MySQL database.
-java,mysql,html,css,bootstrap
+
+<br>
+
+Back-end: PHP with Laravel framework, MariaDB
+<br>Front-end: HTML,CSS, Bootstrap
 
 # What I Learned 
 -Principles of Web Development <br>
