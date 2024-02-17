@@ -7,7 +7,7 @@ All notes will be safely stored in MySQL database.
 
 <br>
 
-Back-end: PHP with Laravel framework, MariaDB
+Back-end: Java, ServeltAPI, MySQL
 <br>Front-end: HTML,CSS, Bootstrap
 
 # What I Learned 
